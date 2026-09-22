@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevAlpha — Case Studies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/custom.css">
+  <style>
+    .stories-hero{
+      padding:92px 0 70px;
+      border-bottom:1px solid var(--line);
+    }
+    .stories-hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:54px;
+      align-items:end;
+    }
+    .stories-hero h1{
+      font-size:clamp(42px,5vw,68px);
+      line-height:1.02;
+      max-width:12ch;
+    }
+    .stories-hero .lede{
+      color:var(--ink-soft);
+      font-size:18px;
+      line-height:1.65;
+      max-width:62ch;
+      margin-top:20px;
+    }
+    .stories-intro-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:28px;
+    }
+    .stories-intro-box .label{
+      color:var(--brass);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:600;
+    }
+    .stories-intro-box strong{
+      display:block;
+      font-family:var(--serif);
+      font-size:27px;
+      margin-top:12px;
+      line-height:1.25;
+    }
+    .stories-section{
+      padding:72px 0;
+    }
+    .stories-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:30px;
+    }
+    .stories-heading h2{font-size:34px;}
+    .stories-heading p{
+      color:var(--ink-soft);
+      max-width:52ch;
+      line-height:1.6;
+    }
+    .story-grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:22px;
+    }
+    .story-card{
+      grid-column:span 6;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .story-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(20,25,30,.08);
+    }
+    .story-visual{
+      min-height:190px;
+      padding:26px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      background:linear-gradient(135deg,#E7EEE9,#F4F1E8);
+      border-bottom:1px solid var(--line);
+    }
+    .story-number{
+      font-family:var(--serif);
+      font-size:52px;
+      line-height:1;
+      color:var(--brass);
+    }
+    .story-type{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:var(--ink-soft);
+    }
+    .story-body{padding:26px;}
+    .story-body h3{font-size:25px;line-height:1.2;}
+    .story-body .story-sub{
+      color:var(--ink-soft);
+      margin-top:10px;
+      line-height:1.55;
+    }
+    .story-metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--line);
+      margin-top:22px;
+      padding-top:20px;
+      gap:12px;
+    }
+    .story-metric strong{
+      display:block;
+      font-family:var(--serif);
+      font-size:25px;
+    }
+    .story-metric span{
+      display:block;
+      color:var(--ink-soft);
+      font-size:12px;
+      margin-top:4px;
+    }
+    .story-link{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-top:22px;
+      color:var(--ink);
+      font-size:14px;
+      font-weight:600;
+    }
+    .story-link svg{width:16px;height:16px;}
+    .results-band{
+      background:var(--ink);
+      color:#fff;
+      padding:66px 0;
+    }
+    .results-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .result-card{
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:14px;
+      padding:26px;
+    }
+    .result-card .result{
+      font-family:var(--serif);
+      font-size:40px;
+      color:#E8C878;
+    }
+    .result-card h3{font-size:18px;margin-top:8px;}
+    .result-card p{
+      color:rgba(255,255,255,.72);
+      font-size:14px;
+      line-height:1.55;
+      margin-top:8px;
+    }
+    .stories-note{
+      margin-top:28px;
+      padding:18px 20px;
+      border-left:3px solid var(--brass);
+      background:var(--panel);
+      color:var(--ink-soft);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .stories-cta{
+      padding:72px 0;
+    }
+    .stories-cta-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:42px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+    .stories-cta-box h2{font-size:32px;}
+    .stories-cta-box p{
+      color:var(--ink-soft);
+      margin-top:10px;
+      max-width:58ch;
+      line-height:1.6;
+    }
+    @media(max-width:800px){
+      .stories-hero-grid{grid-template-columns:1fr;}
+      .story-card{grid-column:span 12;}
+      .results-grid{grid-template-columns:1fr;}
+      .stories-cta-box{display:block;}
+      .stories-cta-box .btn{margin-top:22px;}
+    }
+    @media(max-width:600px){
+      .stories-hero{padding:62px 0 48px;}
+      .stories-section,.stories-cta{padding:52px 0;}
+      .stories-heading{display:block;}
+      .stories-heading p{margin-top:12px;}
+      .story-metrics{grid-template-columns:1fr 1fr;}
+      .stories-cta-box{padding:28px;}
+    }
+
+    .case-studies-detail{padding:0 0 76px;}
+    .case-study{padding:62px 0;border-top:1px solid var(--line);scroll-margin-top:90px;}
+    .case-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;}
+    .case-head h2{font-size:clamp(32px,4vw,48px);line-height:1.08;margin-top:8px;}
+    .case-location{color:var(--ink-soft);margin-top:10px;}
+    .case-result{font-family:var(--serif);font-size:44px;color:var(--brass);text-align:right;white-space:nowrap;}
+    .case-result span{display:block;font-family:var(--sans);font-size:12px;color:var(--ink-soft);letter-spacing:.04em;}
+    .case-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px;}
+    .case-columns>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;}
+    .case-columns h3{font-size:18px;margin-bottom:10px;}
+    .case-columns p,.case-summary{color:var(--ink-soft);line-height:1.65;font-size:15px;}
+    .case-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
+    .case-tags span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);font-size:12px;background:var(--panel);}
+    .case-outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;}
+    .case-outcomes>div{padding:20px;border-radius:14px;background:#F4F1E8;border:1px solid var(--line);}
+    .case-outcomes strong{display:block;font-family:var(--serif);font-size:25px;line-height:1.1;}
+    .case-outcomes span{display:block;color:var(--ink-soft);font-size:12px;line-height:1.4;margin-top:7px;}
+    .case-summary{margin-top:25px;max-width:78ch;}
+    .source-link{display:inline-flex;margin-top:18px;color:var(--ink);font-size:14px;font-weight:600;}
+    @media(max-width:800px){.case-head{display:block}.case-result{text-align:left;margin-top:18px}.case-columns{grid-template-columns:1fr}.case-outcomes{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.case-study{padding:48px 0}.case-outcomes{grid-template-columns:1fr}.case-result{font-size:38px}}
+  </style>
+</head>
+<body data-page="case-studies">
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand"><img src="assets/logo-trans.png"></a>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="index.html#why">Why Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="stories-hero fade-in">
+    <div class="wrap stories-hero-grid">
+      <div>
+        <p class="eyebrow">Success stories</p>
+        <h1>Better revenue decisions. Measurable movement.</h1>
+        <p class="lede">
+          See how RevAlpha can turn pricing, demand, distribution and revenue data
+          into a clearer operating rhythm for independent hotels.
+        </p>
+      </div>
+      <div class="stories-intro-box">
+        <span class="label">What to look for</span>
+        <strong>From occupancy and ADR to channel mix, every story should show the decision behind the result.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories-section">
+    <div class="wrap">
+      <div class="stories-heading">
+        <div><h2>Featured success stories</h2></div>
+        <p>Real hospitality case studies covering OTA performance, revenue management, dynamic pricing, visibility and reputation.</p>
+      </div>
+
+      <div class="story-grid">
+        <article class="story-card">
+          <div class="story-visual">
+            <span class="story-number">01</span>
+            <span class="story-type">Pilgrim & Leisure Hotel</span>
+          </div>
+          <div class="story-body">
+            <h3>Star Palace Rameshwaram, Tamil Nadu</h3>
+            <p class="story-sub">Transforming digital visibility and OTA performance in a pilgrim destination.</p>
+            <div class="story-metrics">
+              <div class="story-metric"><strong>~15%</strong><span>YoY revenue growth</span></div>
+              <div class="story-metric"><strong>#1</strong><span>TripAdvisor ranking</span></div>
+              <div class="story-metric"><strong>OTA</strong><span>Booking growth</span></div>
+            </div>
+            <a class="story-link" href="star-palace-rameshwaram.html">View dedicated case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-visual">
+            <span class="story-number">02</span>
+            <span class="story-type">Business Hotel</span>
+          </div>
+          <div class="story-body">
+            <h3>Hotel Spencer, Kharghar</h3>
+            <p class="story-sub">Driving consistent revenue through OTA optimization and demand-based pricing.</p>
+            <div class="story-metrics">
+              <div class="story-metric"><strong>₹3.8–4.8K</strong><span>ARR sustained</span></div>
+              <div class="story-metric"><strong>YoY</strong><span>ARR growth</span></div>
+              <div class="story-metric"><strong>↑</strong><span>OTA conversion</span></div>
+            </div>
+            <a class="story-link" href="#hotel-spencer">View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-visual">
+            <span class="story-number">03</span>
+            <span class="story-type">Lakeside Leisure Hotel</span>
+          </div>
+          <div class="story-body">
+            <h3>Ora Lake View Hotel, Switzerland</h3>
+            <p class="story-sub">Achieving revenue growth through smart pricing and OTA optimization.</p>
+            <div class="story-metrics">
+              <div class="story-metric"><strong>37%</strong><span>Room revenue growth</span></div>
+              <div class="story-metric"><strong>38→48%</strong><span>Occupancy</span></div>
+              <div class="story-metric"><strong>#1</strong><span>Booking.com ranking</span></div>
+            </div>
+            <a class="story-link" href="#ora-lake-view">View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-studies-detail">
+    <div class="wrap">
+      <article class="case-study" id="star-palace">
+        <div class="case-head">
+          <div><p class="eyebrow">Case Study 01</p><h2>Star Palace Rameshwaram</h2><p class="case-location">Rameshwaram, Tamil Nadu · Pilgrim & leisure hotel</p></div>
+          <div class="case-result">~15%<span>YoY revenue growth</span></div>
+        </div>
+        <div class="case-columns">
+          <div><h3>The challenge</h3><p>The property had quality infrastructure and strong guest service standards, but limited online visibility and no meaningful presence across major OTA platforms restricted market reach and booking potential. Search visibility and OTA ranking were also weak.</p></div>
+          <div><h3>The approach</h3><p>OTA integration and distribution expansion were combined with optimized listings, keyword-focused descriptions, accurate room details, pricing and inventory management, visibility optimization and structured reputation management.</p></div>
+        </div>
+        <div class="case-tags"><span>OTA Management</span><span>Revenue Management</span><span>Online Reputation Management</span><span>Digital Visibility Optimization</span></div>
+        <div class="case-outcomes"><div><strong>15%</strong><span>Approx. YoY revenue growth</span></div><div><strong>#1</strong><span>TripAdvisor ranking in destination</span></div><div><strong>↑</strong><span>Online bookings & occupancy performance</span></div><div><strong>↑</strong><span>OTA visibility & market reach</span></div></div>
+        <p class="case-summary">The property moved from low online visibility toward a digitally competitive hospitality brand, with substantial OTA bookings, stronger digital presence, positive guest reviews and stable occupancy growth.</p>
+        <a class="source-link" href="https://hospitalityminds.com/spr-cs.html" target="_blank" rel="noopener">Read original case study ↗</a>
+      </article>
+
+      <article class="case-study" id="hotel-spencer">
+        <div class="case-head">
+          <div><p class="eyebrow">Case Study 02</p><h2>Hotel Spencer, Kharghar</h2><p class="case-location">Kharghar, Navi Mumbai · Business-budget luxury segment</p></div>
+          <div class="case-result">₹3.8–4.8K<span>ARR sustained</span></div>
+        </div>
+        <div class="case-columns">
+          <div><h3>The challenge</h3><p>The hotel needed more consistent occupancy and optimized revenue performance throughout the week. Key issues included weekday dips, limited targeting of corporate and transit guests, and OTA listings that required further optimization.</p></div>
+          <div><h3>The approach</h3><p>A focused revenue-management strategy introduced dynamic pricing based on demand patterns, smart pricing for low-demand weekdays and targeted offers for short stays and corporate guests while maintaining rate integrity.</p></div>
+        </div>
+        <div class="case-tags"><span>Revenue Management</span><span>Dynamic Pricing</span><span>OTA Optimization</span><span>Demand Segmentation</span></div>
+        <div class="case-outcomes"><div><strong>₹3,800–₹4,800</strong><span>ARR range sustained</span></div><div><strong>↑</strong><span>OTA conversion performance</span></div><div><strong>↑</strong><span>Inventory utilization efficiency</span></div><div><strong>YoY</strong><span>ARR & room-night growth</span></div></div>
+        <p class="case-summary">The strategy improved revenue quality, pricing consistency and occupancy balance. The case study also identifies further opportunity through refined weekday pricing and stronger demand-based rate control.</p>
+        <a class="source-link" href="https://hospitalityminds.com/hsk-cs.html" target="_blank" rel="noopener">Read original case study ↗</a>
+      </article>
+
+      <article class="case-study" id="ora-lake-view">
+        <div class="case-head">
+          <div><p class="eyebrow">Case Study 03</p><h2>Ora Lake View Hotel</h2><p class="case-location">Niederried bei Interlaken, Switzerland · Lakeside leisure hotel</p></div>
+          <div class="case-result">37%<span>room revenue growth</span></div>
+        </div>
+        <div class="case-columns">
+          <div><h3>The challenge</h3><p>The hotel relied on static pricing, had lower-than-potential Booking.com visibility and carried a 7.5 guest rating. Its strong lakeside setting also presented an untapped wellness opportunity.</p></div>
+          <div><h3>The approach</h3><p>Demand-based dynamic pricing used market demand, booking pace, competitor analysis, seasonal trends and inventory availability. OTA content, imagery, availability, pricing and conversion-focused promotions were also optimized, alongside structured review management.</p></div>
+        </div>
+        <div class="case-tags"><span>Revenue Management</span><span>Dynamic Pricing</span><span>OTA Management</span><span>Reputation Management</span><span>Distribution Optimization</span></div>
+        <div class="case-outcomes"><div><strong>37%</strong><span>Room revenue increase</span></div><div><strong>38→48%</strong><span>Average occupancy</span></div><div><strong>280</strong><span>Additional room nights</span></div><div><strong>38.3%</strong><span>Increase in bookings</span></div><div><strong>#1</strong><span>Booking.com ranking</span></div><div><strong>7.5→8.0</strong><span>Booking.com rating</span></div></div>
+        <p class="case-summary">Within 90 days, the property achieved 37% revenue growth, 280 additional room nights, a 10-point occupancy increase, #1 Booking.com ranking and improved guest ratings.</p>
+        <a class="source-link" href="https://hospitalityminds.com/olvh-cs.html" target="_blank" rel="noopener">Read original case study ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="results-band">
+    <div class="wrap">
+      <div class="stories-heading">
+        <div><h2 style="color:#fff;">Measured outcomes</h2></div>
+        <p style="color:rgba(255,255,255,.68);">Across these documented stories, the focus stays on measurable commercial movement rather than generic claims.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card"><div class="result">37%</div><h3>Room Revenue Growth</h3><p>Ora Lake View Hotel increased room revenue from CHF 130,249 to CHF 178,490.</p></div>
+        <div class="result-card"><div class="result">280</div><h3>Additional Room Nights</h3><p>Ora Lake View Hotel grew from 732 to 1,012 room nights, a 38.3% increase in bookings.</p></div>
+        <div class="result-card"><div class="result">~15%</div><h3>YoY Revenue Growth</h3><p>Star Palace Rameshwaram achieved approximately 15% year-on-year revenue growth.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories-cta">
+    <div class="wrap">
+      <div class="stories-cta-box">
+        <div>
+          <h2>Want to see what this could look like for your hotel?</h2>
+          <p>
+            Share your property details and current revenue setup. RevAlpha can
+            use the same framework to identify pricing, demand and distribution opportunities.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="index.html#contact">Talk to RevAlpha</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">RevAlpha</div>
+    <div class="foot-tagline">Revenue Intelligence for Hotels</div>
+    <div class="foot-powered">Powered by Hospitality Minds</div>
+    <div class="foot-keywords">Pricing • Forecasting • Distribution • Revenue Intelligence</div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
