@@ -26,12 +26,12 @@ a.brand img {
 .blog-card-body p{color:var(--ink-soft);line-height:1.55;margin-top:10px;font-size:14px;}
 .blog-meta{display:flex;gap:12px;color:var(--ink-soft);font-size:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
 .read-link{display:inline-flex;gap:7px;margin-top:18px;font-size:14px;font-weight:600; color: #001a38;}
-.read-link:hover{color: #A9822E; transition: 0.5s;}
+.read-link:hover{color: #ead06a; transition: 0.5s;}
 .featured-post{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);background:var(--panel);margin-bottom:44px;}
 .featured-post .featured-copy{padding:38px;}
 .featured-post .featured-copy h2{font-size:34px;line-height:1.15;margin-top:10px;}
 .featured-post .featured-copy p{color:var(--ink-soft);line-height:1.65;margin-top:16px;}
-.featured-post .featured-visual{min-height:300px;background:linear-gradient(145deg,#16233A,#A9822E);display:flex;align-items:flex-end;padding:30px;color:#fff;}
+.featured-post .featured-visual{min-height:300px;background:linear-gradient(145deg,#16233A,#ead06a);display:flex;align-items:flex-end;padding:30px;color:#fff;}
 .featured-post .featured-visual span{font-family:var(--serif);font-size:36px;max-width:10ch;line-height:1.05;}
 .post-head{padding:76px 0 48px;border-bottom:1px solid var(--line);}
 .post-head .category{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);}
