@@ -1096,7 +1096,7 @@ function detailView(slug){
 }
 
 function notFoundView(){
-  return `<section class="page-head"><div class="wrap"><h1>Not found</h1><p>That page doesn't exist. <a href="index.html" style="text-decoration:underline;">Return home</a>.</p></div></section>`;
+  return `<section class="page-head"><div class="wrap"><h1>Not found</h1><p>That page doesn't exist. <a href="https://revalpha.co/" style="text-decoration:underline;">Return home</a>.</p></div></section>`;
 }
 
 function contactFormHTML(compact, presetInterest){

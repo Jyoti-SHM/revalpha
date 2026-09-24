@@ -59,7 +59,7 @@
     .nav-cta{display:none;}
   }
   .mobile-menu{display:none; flex-direction:column; padding:12px 0 24px; border-top:1px solid var(--line);}
-  .mobile-menu.open{display:flex;}
+  .mobile-menu.open{display:flex;padding: 25px;}
   .mobile-menu a{padding:12px 0; font-size:16px; border-bottom:1px solid var(--line);}
 
   main{min-height:60vh;}
